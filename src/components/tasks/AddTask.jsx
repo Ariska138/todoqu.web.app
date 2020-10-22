@@ -18,7 +18,7 @@ class AddTask extends Component {
 
   render() {
     return (
-      <div className="container my-5">
+      <div className="my-5">
         <form 
         autoComplete="off"
         onSubmit={this.handleSubmit}
