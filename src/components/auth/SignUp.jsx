@@ -1,14 +1,56 @@
 import React, {Component} from "react";
 
 class SignUp extends Component {
-
-    state = {};
-    
-    render() {
-        return (
-            <h1> Sign Up</h1>
-        );
+    state = {
+        email: "",
+        password: ""
+    };
+  
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id]: e.target.value
+        })
     }
-}
-
-export default SignUp;
+  
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state);
+    }
+  
+    render() {
+      return (
+        <div className="container my-5">
+          <h1> Sign Up</h1>
+          <form 
+          autoComplete="off"
+          onSubmit={this.handleSubmit}
+          >
+            <div className="form-group">
+              <label htmlFor="email">Email address</label>
+              <input 
+              type="email" 
+              className="form-control" 
+              id="email"
+              onChange={this.handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input 
+              type="password"
+              className="form-control" 
+              id="password"
+              onChange={this.handleChange}
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Sign Up
+            </button>
+          </form>
+        </div>
+      );
+    }
+  }
+  
+  export default SignUp;
+  
