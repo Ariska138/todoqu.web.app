@@ -4,13 +4,13 @@ import {Link} from 'react-router-dom';
 const NavItems = () => {
     return (
         <>
-            <Link to="/signin" className="navbar-link">
+            <Link to="/signin" className="nav-link">
                 Sign Out
             </Link>
-            <Link to="/signout" className="navbar-link">
+            <Link to="/signout" className="nav-link">
                 Sign Up
             </Link>
-            <Link to="/signin" className="navbar-link">
+            <Link to="/signin" className="nav-link">
                 Sign In
             </Link>
           </>  
