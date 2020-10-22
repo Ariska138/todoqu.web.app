@@ -1,20 +1,47 @@
 import React, { Component } from "react";
 
 class SignIn extends Component {
-  state = {};
+  state = {
+      email: "",
+      password: ""
+  };
+
+  handleChange = (e) => {
+      this.setState({
+          [e.target.id]: e.target.value
+      })
+  }
+
+  handleSubmit = (e) => {
+      e.preventDefault();
+      console.log(this.state);
+  }
 
   render() {
     return (
       <div className="container my-5">
         <h1> Sign In</h1>
-        <form autoComplete="off">
+        <form 
+        autoComplete="off"
+        onSubmit={this.handleSubmit}
+        >
           <div className="form-group">
             <label htmlFor="email">Email address</label>
-            <input type="email" className="form-control" id="email" />
+            <input 
+            type="email" 
+            className="form-control" 
+            id="email"
+            onChange={this.handleChange}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input type="password" className="form-control" id="password" />
+            <input 
+            type="password"
+            className="form-control" 
+            id="password"
+            onChange={this.handleChange}
+            />
           </div>
           <button type="submit" className="btn btn-primary">
             Sign In
