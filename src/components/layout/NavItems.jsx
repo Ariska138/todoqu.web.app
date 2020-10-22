@@ -7,7 +7,7 @@ const NavItems = () => {
             <Link to="/signin" className="nav-link">
                 Sign Out
             </Link>
-            <Link to="/signout" className="nav-link">
+            <Link to="/signup" className="nav-link">
                 Sign Up
             </Link>
             <Link to="/signin" className="nav-link">
