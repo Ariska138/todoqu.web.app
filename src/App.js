@@ -10,7 +10,7 @@ function App() {
     <h3 className="text-primary">TodoQu</h3>
     <Route path="/signin" component={SignIn}/>
     <Route path="/signup" component={SignUp}/>
-    <Route path="/" component={Dashboard}/>
+    <Route path="/" exact component={Dashboard}/>
     
     </BrowserRouter>
    
