@@ -11,14 +11,14 @@ import {Provider} from 'react-redux';
 import thunk from "redux-thunk";
 //firebase
 import {getFirebase, ReactReduxFirebaseProvider} from "react-redux-firebase";
-import firebaseConfig from "./config/firebaseConfig";
+import firebase from "./config/firebaseConfig";
 import {createFirestoreInstance} from "redux-firestore";
 
 const store = createStore(rootReducer, applyMiddleware(thunk.withExtraArgument({getFirebase})));
 
 //react-redux-firebase props
 const rrfProps = {
-  firebaseConfig,
+  firebase,
   config: {},
   dispatch: store.dispatch,
   createFirestoreInstance
