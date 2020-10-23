@@ -1,6 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import NavItems from './NavItems';
+
+import {connect} from "react-redux";
+
 const NavBar = () => {
     return (
         <nav className="navbar-light bg-light d-flex justify-content-center">
@@ -12,4 +15,7 @@ const NavBar = () => {
     );
 }
 
-export default NavBar;
+const mapStateToProps = (state) => {
+    console.log(state);
+}
+export default connect(mapStateToProps)(NavBar);
