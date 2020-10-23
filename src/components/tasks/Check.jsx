@@ -6,7 +6,7 @@ const Check = ({ checked, onClick}) => {
             <span 
             className="material-icons text-success"
             style={{cursor:"pointer"}}
-            onClick={onClick}
+            onClick={onClick} // refference to onclick
             >
                 check_circle_outline
             </span>

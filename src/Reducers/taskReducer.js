@@ -22,6 +22,16 @@ const taskReducer = (state = {}, action) => {
             return state;
         }
 
+        case "TOGGLE_CHECKED": {
+            toast.info("A task status changed...");
+            return state;
+        }
+
+        case "TOGGLE_CHECKED_ERR": {
+            toast.error("A task status change error occured...");
+            return state;
+        }
+
         default: return state
     }
 }

@@ -2,17 +2,22 @@ import React from "react";
 // format date
 import moment from "moment";
 // remove row
-import { removeTask } from "../../actions/taskActions";
+import { removeTask, toggleChecked } from "../../actions/taskActions";
 // update checklist
 import Check from "./Check";
 
 import { connect } from "react-redux";
 
 
-const Task = ({ task, removeTask }) => {
+const Task = ({ task, removeTask, toggleChecked }) => {
   const handleRemove = (task) => {
     removeTask(task);
   };
+
+
+  const handleCheck = task => {
+      toggleChecked(task);
+  }
 
   return (
     <tr>
@@ -20,6 +25,7 @@ const Task = ({ task, removeTask }) => {
       <td>{moment(task.date.toDate()).calendar()}</td>
       <td>
         <Check
+        onClick={()=> handleCheck(task)}
         checked={task.checked}
         />
       </td>
@@ -39,6 +45,7 @@ const Task = ({ task, removeTask }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     removeTask: (task) => dispatch(removeTask(task)),
+    toggleChecked: (task) => dispatch(toggleChecked(task))
   };
 };
 
