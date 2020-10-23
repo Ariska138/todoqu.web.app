@@ -16,6 +16,7 @@ class AddTask extends Component {
   handleSubmit = (e) => {
       e.preventDefault();
       this.props.addTask(this.state)
+      document.getElementById("addTaskForm").reset();
       console.log(this.state);
   }
 
@@ -23,6 +24,7 @@ class AddTask extends Component {
     return (
       <div className="my-5">
         <form 
+        id="addTaskForm"
         autoComplete="off"
         onSubmit={this.handleSubmit}
         >
