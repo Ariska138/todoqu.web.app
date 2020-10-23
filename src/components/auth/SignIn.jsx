@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {signIn} from "../../actions/AuthAction";
 import {connect} from "react-redux";
+import {Redirect} from "react-router-dom";
 
 class SignIn extends Component {
   state = {
@@ -21,6 +22,9 @@ class SignIn extends Component {
   }
 
   render() {
+    const { uid } = this.props;
+    if(uid) return <Redirect to="/"/>
+    
     return (
       <div className="container my-5">
         <h1> Sign In</h1>
@@ -55,8 +59,18 @@ class SignIn extends Component {
   }
 }
 
+
+const mapStateToProps = (state) => {
+  console.log(state);
+  const uid = state.firebase.auth.uid;
+
+  return {
+      uid
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {signIn: (creds) => dispatch(signIn(creds))}
 }
 
-export default connect(null, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
