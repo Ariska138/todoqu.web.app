@@ -12,6 +12,16 @@ const taskReducer = (state = {}, action) => {
             return state;
         }
 
+        case "REMOVE_TASK": {
+            toast.warn("A tas was removed...");
+            return state;
+        }
+
+        case "REMOVE_TASK_ERR": {
+            toast.error("A task remove error occured...");
+            return state;
+        }
+
         default: return state
     }
 }
