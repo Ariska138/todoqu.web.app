@@ -1,12 +1,14 @@
+import {toast} from "react-toastify";
+
 const taskReducer = (state = {}, action) => {
     switch(action.type) {
         case "ADD_TASK": {
-            console.log("Added a task");
+            toast.success("Added a task");
             return state;
         }
 
         case "ADD_TASK_ERR":{
-            console.log("An Error occured");
+            toast.error("An Error occured");
             return state;
         }
 
