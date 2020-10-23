@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 
-const Tasks = () => { // slr <tab>
+const Tasks = ({tasks}) => { // slr <tab>
     return (
         <table className="table table-striped table-dark">
   <thead>
@@ -17,7 +17,8 @@ const Tasks = () => { // slr <tab>
     </tr>
   </thead>
   <tbody>
-    <Task/>
+    {tasks && tasks.map(task => <Task task={task} key={task.id}/>)}
+    
   </tbody>
 </table>
     );

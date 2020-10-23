@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Task = () => {
+const Task = ({task}) => {
     return (
         <tr>
-      <th scope="row">Learn React</th>
+      <th scope="row">{task.task}</th>
       <td>2020/10/22</td>
       <td><span className="material-icons" style={{cursor:"pointer"}}>
 check_circle</span></td>
