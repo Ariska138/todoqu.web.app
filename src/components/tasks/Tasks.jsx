@@ -1,6 +1,9 @@
 import React from 'react'; //imr <tab>
 import Task from './Task';
-
+//read data form firebase
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { firestoreConnect } from "react-redux-firebase";
 
 const Tasks = () => { // slr <tab>
     return (
@@ -20,4 +23,16 @@ const Tasks = () => { // slr <tab>
     );
 }
 
-export default Tasks;
+//read data
+const mapStateToProps = state => {
+  console.log(state);
+  const tasks = state.firestore.ordered.tasks;
+  return {
+    tasks
+  }
+}
+
+export default compose(connect(mapStateToProps), firestoreConnect(ownProps => [{
+  collection: "tasks",
+  oderby: ["date","desc"]
+}]))(Tasks);
