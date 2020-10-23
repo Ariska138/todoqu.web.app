@@ -6,6 +6,7 @@ const authReducer = (state = {}, action) => {
       toast("Welcome back..");
       return state;
     }
+    
     case "SIGN_IN_ERR": {
       toast.error("Sign in error...");
       return state;
@@ -15,6 +16,16 @@ const authReducer = (state = {}, action) => {
         toast("You signed out..");
         return state;
     }
+
+    case "SIGN_UP": { // bisa tidak pakai kurung kurawal
+        toast("Welcome..");
+        return state;
+      }
+
+      case "SIGN_UP_ERR": {
+        toast.error("Sign up error...");
+        return state;
+      }
     default:
       return state;
   }

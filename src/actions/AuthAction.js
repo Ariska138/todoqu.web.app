@@ -1,4 +1,4 @@
-import { analytics } from "firebase"
+import { analytics, auth } from "firebase"
 
 export const signIn = creds => {
     return (dispatch, getState, {getFirebase}) => {
@@ -33,3 +33,19 @@ export const signOut = () => {
         });
     };
 };
+
+export const signUp = creds => {
+    return (dispatch, getState, {getFirebase}) => {
+        const firebase = getFirebase();
+
+        firebase
+        .auth()
+        .createUserWithEmailAndPassword(creds.email, creds.password)
+        .then(() => {
+            dispatch({ type: "SIGN_UP" });
+        })
+        .catch(err => {
+            dispatch({type: "SIGN_UP_ERR"}, err);
+        })
+    }
+}
