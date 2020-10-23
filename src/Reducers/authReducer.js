@@ -11,6 +11,10 @@ const authReducer = (state = {}, action) => {
       return state;
     }
 
+    case "SIGN_OUT": {
+        toast("You signed out..");
+        return state;
+    }
     default:
       return state;
   }
