@@ -35,5 +35,5 @@ const mapStateToProps = state => {
 
 export default compose(connect(mapStateToProps), firestoreConnect(ownProps => [{
   collection: "tasks",
-  oderby: ["date","desc"]
+  orderBy: ["date","desc"]
 }]))(Tasks);
