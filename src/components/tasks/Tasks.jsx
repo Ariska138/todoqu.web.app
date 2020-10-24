@@ -29,11 +29,15 @@ const mapStateToProps = state => {
   console.log(state);
   const tasks = state.firestore.ordered.tasks;
   return {
-    tasks
+    tasks,
+    uid: state.firebase.auth.uid
   }
 }
 
-export default compose(connect(mapStateToProps), firestoreConnect(ownProps => [{
+export default compose(
+  connect(mapStateToProps),
+   firestoreConnect(ownProps => [{
   collection: "tasks",
+  where: ["authorId", "==", ownProps.uid],
   orderBy: ["date","desc"]
 }]))(Tasks);
