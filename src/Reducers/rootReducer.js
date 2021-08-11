@@ -1,7 +1,6 @@
-import React from 'react';
 import { combineReducers } from 'redux';
-import {firebaseReducer} from "react-redux-firebase";
-import {firestoreReducer} from "redux-firestore";
+import { firebaseReducer } from "react-redux-firebase";
+import { firestoreReducer } from "redux-firestore";
 import taskReducer from "./taskReducer";
 import authReducer from "./authReducer";
 
